@@ -19,7 +19,12 @@ for (const file of commandFiles) {
 console.log(client.commands);
 
 client.once('ready', () => {
-	console.log('Ready!');
+	
+  console.log('Ready!');
+  // Set the client user's activity
+client.user.setActivity('v!help | Aspekt: Nothing at the moment', { type: 'PLAYING' })
+  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+  .catch(console.error);
 });
 
 client.once('reconnecting', () => {
